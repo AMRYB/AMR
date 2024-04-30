@@ -8,3 +8,10 @@ function toggleVisibility(id) {
 }
 
 document.getElementById('date').textContent = new Date().toLocaleDateString();
+
+document.addEventListener('DOMContentLoaded', function() {
+  var myAudio = document.getElementById('myAudio');
+  setTimeout(function(){
+    myAudio.play();
+  }, 5000);
+});
