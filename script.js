@@ -42,3 +42,21 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById(course + '-points').textContent = result.points;
     });
 });
+
+function changeYear() {
+    var year = document.getElementById("academicYear").value;
+    document.querySelectorAll('.course-details').forEach(function(element) {
+        element.classList.add('hidden');
+    });
+    document.getElementById('term').style.display = 'block';
+}
+
+function changeTerm() {
+    var year = document.getElementById("academicYear").value;
+    var term = document.getElementById("term").value;
+    var courseId = year + term;
+    document.querySelectorAll('.course-details').forEach(function(element) {
+        element.classList.add('hidden');
+    });
+    document.getElementById(courseId).classList.remove('hidden');
+}
