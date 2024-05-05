@@ -68,3 +68,10 @@ select:focus {
     outline: none; 
     background-color: #333333; 
 }
+
+#academicYear {
+    margin-right: 5px; 
+}
+#term {
+    margin-left: 5px; 
+}
