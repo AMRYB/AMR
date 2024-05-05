@@ -72,3 +72,14 @@ function updateCoursesVisibility() {
         detail.classList.add('hidden');
     });
 
+    var selectedYear = document.getElementById('academicYear').value;
+    var selectedTerm = document.getElementById('term').value;
+    var activeSectionId = selectedYear + selectedTerm;
+    var activeSection = document.getElementById(activeSectionId);
+    if (activeSection) {
+        activeSection.classList.remove('hidden');
+    } else {
+        console.error("No course details section found for ID:", activeSectionId);
+    }
+}
+
