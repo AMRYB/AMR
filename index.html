@@ -26,36 +26,76 @@
         </select>
 
         <div id="courses">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amr Yasser Badr's Report Card</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Student Report Card</h1>
+            <h2>Amr Yasser Badr</h2>
+            <p>ID: 231052121</p>
+        </header>
+        <select id="academicYear" onchange="changeYear()">
+            <option value="year1">Year 1</option>
+            <option value="year2">Year 2</option>
+            <option value="year3">Year 3</option>
+            <option value="year4">Year 4</option>
+        </select>
+
+        <select id="term" onchange="changeTerm()">
+            <option value="term1">Term 1</option>
+            <option value="term2">Term 2</option>
+        </select>
+
+        <div id="courses">
             <div id="year1term1" class="course-details hidden">
                 <div class="course" onclick="toggleVisibility('english1-details')">
                     <h3>English I</h3>
-                    <p>Grade: D+</p>
-                    <p>Total: 63/100</p>
+                    <div id="english1-details" class="details hidden">
+                        <p>Grade: D+</p>
+                        <p>Total: 63/100</p>
+                    </div>
                 </div>
                 <div class="course" onclick="toggleVisibility('social-issues-details')">
                     <h3>Social issues and anti-corruption</h3>
-                    <p>Grade: C+</p>
-                    <p>Total: 73/100</p>
+                    <div id="social-issues-details" class="details hidden">
+                        <p>Grade: C+</p>
+                        <p>Total: 73/100</p>
+                    </div>
                 </div>
                 <div class="course" onclick="toggleVisibility('info-systems-details')">
                     <h3>Fundamentals of Information Systems</h3>
-                    <p>Grade: C</p>
-                    <p>Total: 69/100</p>
+                    <div id="info-systems-details" class="details hidden">
+                        <p>Grade: C</p>
+                        <p>Total: 69/100</p>
+                    </div>
                 </div>
                 <div class="course" onclick="toggleVisibility('discrete-math-details')">
                     <h3>Discrete Mathematics</h3>
-                    <p>Grade: C</p>
-                    <p>Total: 71/100</p>
+                    <div id="discrete-math-details" class="details hidden">
+                        <p>Grade: C</p>
+                        <p>Total: 71/100</p>
+                    </div>
                 </div>
                 <div class="course" onclick="toggleVisibility('intro-computers-details')">
                     <h3>Introduction to Computers</h3>
-                    <p>Grade: C</p>
-                    <p>Total: 71/100</p>
+                    <div id="intro-computers-details" class="details hidden">
+                        <p>Grade: C</p>
+                        <p>Total: 71/100</p>
+                    </div>
                 </div>
                 <div class="course" onclick="toggleVisibility('Mathematics-details')">
                     <h3>Mathematics</h3>
-                    <p>Grade: 3.4 A-</p>
-                    <p>Total: 91/100</p>
+                    <div id="Mathematics-details" class="details hidden">
+                        <p>Grade: 3.4 A-</p>
+                        <p>Total: 91/100</p>
+                    </div>
                 </div>
             </div>
             <div id="year1term2" class="course-details hidden">
