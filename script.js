@@ -68,3 +68,42 @@ function changeYear() {
 function changeTerm() {
     console.log("Term changed to: " + document.getElementById('term').value);
 }
+
+window.onload = function() {
+    document.getElementById('date').textContent = new Date().toLocaleDateString();
+    updateCoursesVisibility(); 
+};
+
+function changeYear() {
+    updateCoursesVisibility(); 
+}
+
+function changeTerm() {
+    updateCoursesVisibility(); 
+}
+
+function updateCoursesVisibility() {
+    var courseDetails = document.querySelectorAll('.course-details');
+    courseDetails.forEach(function(detail) {
+        detail.classList.add('hidden');
+    });
+
+    var selectedYear = document.getElementById('academicYear').value;
+    var selectedTerm = document.getElementById('term').value;
+    var activeSectionId = selectedYear + selectedTerm;
+    var activeSection = document.getElementById(activeSectionId);
+    if (activeSection) {
+        activeSection.classList.remove('hidden');
+    } else {
+        console.error("No course details section found for ID:", activeSectionId);
+    }
+}
+
+function toggleVisibility(id) {
+    var element = document.getElementById(id);
+    if (element) {
+        element.classList.toggle('hidden');
+    } else {
+        console.error("No element found with ID:", id);
+    }
+}
