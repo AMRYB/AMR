@@ -60,3 +60,11 @@ function changeTerm() {
     });
     document.getElementById(courseId).classList.remove('hidden');
 }
+
+function changeYear() {
+    console.log("Year changed to: " + document.getElementById('academicYear').value);
+}
+
+function changeTerm() {
+    console.log("Term changed to: " + document.getElementById('term').value);
+}
