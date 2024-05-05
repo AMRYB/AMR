@@ -60,11 +60,11 @@ select {
 }
 
 select:hover {
-    background-color: #2980b9; 
+    background-color: #333333; 
     color: white;
 }
 
 select:focus {
     outline: none; 
-    background-color: #3498db; 
+    background-color: #333333; 
 }
