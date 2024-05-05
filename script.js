@@ -107,3 +107,28 @@ function toggleVisibility(id) {
         console.error("No element found with ID:", id);
     }
 }
+
+function toggleVisibility(id) {
+    var element = document.getElementById(id);
+    if (element) {
+        element.classList.toggle('hidden');
+    } else {
+        console.error("No element found with ID:", id);
+    }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    var year = document.getElementById('academicYear').value;
+    var term = document.getElementById('term').value;
+    var courseId = year + term;
+    var courseDetails = document.querySelectorAll('.course-details');
+    courseDetails.forEach(function(detail) {
+        detail.classList.add('hidden');
+    });
+    var activeSection = document.getElementById(courseId);
+    if (activeSection) {
+        activeSection.classList.remove('hidden');
+    } else {
+        console.error("No course details section found for ID:", courseId);
+    }
+});
