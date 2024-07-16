@@ -1,85 +1,51 @@
-function toggleVisibility(id) {
-    var element = document.getElementById(id);
-    if (element.style.display === 'block') {
-        element.style.display = 'none';
-    } else {
-        element.style.display = 'block';
+document.addEventListener('DOMContentLoaded', function () {
+    // التحقق من وضع النظام
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.documentElement.classList.add('dark-mode');
     }
-}
 
-document.getElementById('date').textContent = new Date().toLocaleDateString();
+    // التحقق من لغة المتصفح
+    const userLang = navigator.language || navigator.userLanguage;
+    const welcomeMessage = document.getElementById('welcome-message');
+    const additionalMessage = document.getElementById('additional-message');
 
-document.addEventListener('DOMContentLoaded', function() {
-  var myAudio = document.getElementById('myAudio');
-  setTimeout(function(){
-    myAudio.play();
-  }, 5000);
-});
-
-document.addEventListener('DOMContentLoaded', function() {
-    var scores = {english: 36.5, logicDesign: 14, programming: 15, physics: 16, statistics: 34, management: 39};
-    Object.keys(scores).forEach(function(course) {
-        var totalPoints = scores[course];
-        var percent = (totalPoints / 40) * 100;
-        var result = calculateGrade(percent);
-        document.getElementById(course + '-grade').textContent = result.grade;
-        document.getElementById(course + '-points').textContent = result.points;
-    });
-});
-
-function changeYear() {
-    var year = document.getElementById("academicYear").value;
-    document.querySelectorAll('.course-details').forEach(function(element) {
-        element.classList.add('hidden');
-    });
-    document.getElementById('term').style.display = 'block';
-}
-
-function changeTerm() {
-    var year = document.getElementById("academicYear").value;
-    var term = document.getElementById("term").value;
-    var courseId = year + term;
-    document.querySelectorAll('.course-details').forEach(function(element) {
-        element.classList.add('hidden');
-    });
-    document.getElementById(courseId).classList.remove('hidden');
-}
-
-function changeYear() {
-    console.log("Year changed to: " + document.getElementById('academicYear').value);
-}
-
-function changeTerm() {
-    console.log("Term changed to: " + document.getElementById('term').value);
-}
-
-window.onload = function() {
-    document.getElementById('date').textContent = new Date().toLocaleDateString();
-    updateCoursesVisibility(); 
-};
-
-function changeYear() {
-    updateCoursesVisibility(); 
-}
-
-function changeTerm() {
-    updateCoursesVisibility(); 
-}
-
-function updateCoursesVisibility() {
-    var courseDetails = document.querySelectorAll('.course-details');
-    courseDetails.forEach(function(detail) {
-        detail.classList.add('hidden');
-    });
-
-    var selectedYear = document.getElementById('academicYear').value;
-    var selectedTerm = document.getElementById('term').value;
-    var activeSectionId = selectedYear + selectedTerm;
-    var activeSection = document.getElementById(activeSectionId);
-    if (activeSection) {
-        activeSection.classList.remove('hidden');
+    if (userLang.startsWith('ar')) {
+        welcomeMessage.textContent = 'مرحبا بك';
+        additionalMessage.textContent = 'أنت الآن في موقع الجامعة';
     } else {
-        console.error("No course details section found for ID:", activeSectionId);
+        welcomeMessage.textContent = 'Hello';
+        additionalMessage.textContent = 'You are now at the university website';
     }
-}
 
+    // عرض الرسالة الأولى ثم الثانية بتأثير fade
+    setTimeout(() => {
+        welcomeMessage.classList.add('fade-in');
+    }, 200); // إضافة تأخير بسيط لضمان تحميل الصفحة بالكامل
+
+    setTimeout(() => {
+        welcomeMessage.classList.remove('fade-in');
+        welcomeMessage.classList.add('fade-out');
+        setTimeout(() => {
+            welcomeMessage.style.display = 'none';
+            additionalMessage.style.display = 'block';
+            additionalMessage.classList.add('fade-in');
+        }, 1100); // وقت لتأثير fade-out
+    }, 2000); // عرض الرسالة الأولى لمدة 3 ثوانٍ
+
+    // إخفاء رسالة الترحيب الثانية بتأثير fade-out
+    setTimeout(() => {
+        additionalMessage.classList.remove('fade-in');
+        additionalMessage.classList.add('fade-out');
+        setTimeout(() => {
+            additionalMessage.style.display = 'none';
+        }, 1500); // وقت لتأثير fade-out
+    }, 9000); // عرض الرسالة الثانية لمدة 3 ثوانٍ
+
+    // إخفاء شاشة الترحيب وعرض المحتوى بعد عرض الرسالتين
+    setTimeout(() => {
+        const welcomeScreen = document.getElementById('welcome-screen');
+        const content = document.getElementById('content');
+        welcomeScreen.style.display = 'none';
+        content.style.display = 'block';
+    }, 10500); // إضافة تأخير لضمان إخفاء رسالة الترحيب الثانية
+});
