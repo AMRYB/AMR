@@ -11,10 +11,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
     if (userLang.startsWith('ar')) {
         welcomeMessage.textContent = 'مرحبا بك';
-        additionalMessage.textContent = 'أنت الآن في موقع الجامعة';
+        additionalMessage.textContent = 'هذا الموقع غير رسمي حتي الان خاص بكليه علوم الحاسب و تكنولوجيا المعلومات';
     } else {
         welcomeMessage.textContent = 'Hello';
-        additionalMessage.textContent = 'You are now at the university website';
+        additionalMessage.textContent = 'This website is not official yet for the College of Computer Science and Information Technology';
     }
 
     // عرض الرسالة الأولى ثم الثانية بتأثير fade
